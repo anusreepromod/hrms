@@ -1,0 +1,321 @@
+{% extends "master.html" %}
+{% load static %}
+
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    window.onload=function(){
+        loaddata()
+    } 
+ </script>
+<div style="padding-top: 90px;padding-left: 10px;">
+    <h3>User Details</h3> 
+</div><br>
+<div class="row">
+    <div class="col-md-12">
+        <div class="widget box employessForms">
+            <div class="widget-content">
+                <form  class="form-horizontal row-border">
+                    <div class="col-md-12">
+                        <div class="widget box">
+                            <div >
+                                <div class="headingOftabel">
+                                    <h4>
+                                        Personal Details
+                                    </h4>
+                                </div>
+                               
+                            </div>
+                            <div class="widget-content">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group efirst">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                First Name 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="name"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label"style="color: grey;">
+                                                Middle Name 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="mname"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Last Name 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft ">
+                                                <span id="lname"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Father's Name 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="fname" ></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Date of Birth 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="dob"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Gender 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="gender" ></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Marital Status 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="mstatus"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                       <hr>
+                        <div class="widget box">
+                            <div class="widget-header">
+                                <div >
+                                    <h4>
+                                        Official Details
+                                    </h4>
+                                </div>
+                                
+                            </div>
+                            <div class="widget-content">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group efirst">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Employee Type 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="etype"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Department 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="dept"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Designation 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="designation"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Employee Grade
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="grade" ></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Date of join
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="doj" ></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Shift 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="shift"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="col-md-12">
+                        <div class="widget box">
+                            <div class="widget-header">
+                                <div >
+                                    <h4>
+                                        Contact Details
+                                    </h4>
+                                </div>
+                               
+                            </div>
+                            <div class="widget-content">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group efirst">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Address
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="address"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                City
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="city"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                State
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="state"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Country
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="Country"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Pin Code 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="pincode"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Mobile 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="mobile"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="col-md-12 control-label" style="color: grey;">
+                                                Personal Email 
+                                            </label>
+                                            <div class="col-md-12 control-label textLeft">
+                                                <span id="pemail"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+       
+                    </div>
+              </form>
+    </div>    
+</div>  
+<script>
+    function loaddata(){
+         $.ajax({
+             url:'/user/getuserprofile/',
+             type:'GET',
+             success: function(response){
+               $('#name').text(response.edetails[0].name)
+               $('#mname').text(response.edetails[0].mname)
+               $('#lname').text(response.edetails[0].lname)
+               $('#fname').text(response.edetails[0].fname)
+               $('#dob').text(response.edetails[0].dob)
+               $('#gender').text(response.edetails[0].gender)
+               $('#mstatus').text(response.edetails[0].mstatus)
+               $('#etype').text(response.edetails[0].etype)
+               $('#dept').text(response.edetails[0].dept)
+               $('#designation').text(response.edetails[0].des)
+               $('#grade').text(response.edetails[0].grade)
+               $('#doj').text(response.edetails[0].doj)
+               $('#shift').text(response.edetails[0].shift)
+               $('#address').text(response.cdetails[0].address)
+               $('#city').text(response.cdetails[0].city)
+               $('#country').text(response.cdetails[0].country)
+               $('#pincode').text(response.cdetails[0].pincode)
+               $('#mobile').text(response.cdetails[0].mobile)
+               $('#pemail').text(response.cdetails[0].pemail)
+             }
+
+         })
+      }
+</script>
+{% endblock %}

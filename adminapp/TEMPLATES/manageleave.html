@@ -1,0 +1,268 @@
+{% extends "masters.html" %}
+{% load static %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+   window.onload=function(){
+       loaddata()
+   }
+    
+</script>
+<div class="page-content" style="padding-top: 60px;padding-left:10px;">
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 ">Manage Leave
+</h5>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-8 d-flex align-items-center justify-content-between justify-content-md-end">
+                <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center justify-content-between justify-content-md-end">
+            
+                    <input class="form-control py-2 border-right-0 border" type="search"  id="searchs">
+                    <span class="input-group-append">
+                      <button class="btn btn-outline-secondary border-left-0 border" type="button" onclick="search()">
+                            <i class="fa fa-search"></i>
+                      </button>
+                    </span>
+                
+        </div>  
+                <div class="btn-group">
+                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fa fa-plus">Add</i>
+                      </button> -->
+                    <!-- <span class="btn addButtons">
+                    </span>  -->
+                    <a href="/adminapp/createleave/" class="btn btn-primary btn-small active" role="button" aria-pressed="true"><i class="fa fa-plus">Add</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row" style="padding-top: 20px;">
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body py-0">
+            <div class="table-responsive">  
+                <table class="table table-striped mb-0 dataTable" id="table">
+                    <thead>
+                    <tr>
+                        <th width="5%">Sl</th>
+                       <th width="10%">Emp Id</th>
+                       <th width="10%">Emp Name</th>
+                        <th width="10%">Leave Type</th>
+                        <th width="10%">Start Date</th>
+                        <th width="10%">End Date</th>
+                        <th width="10%">Leave Reason</th>
+                        <th width="10%">status</th>
+                        <th width="10%">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                   <tr>
+                       
+                        
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+   
+<!-- view modal -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Leave Action</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="card ">
+                        <div class="card-body ">
+                            <div class="row">
+                                <!-- <div class="form-group col-lg-12">
+                 
+                                    <input class="form-control" required="required" name="" id="id" type="text"  >
+                                </div> -->
+                                <div class="form-group col-lg-6">
+                                    <label for="" class="form-control-label">Employee Id</label>
+                                    <input class="form-control" required="required" name="" id="empid" type="text" >
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="" class="form-control-label">Employee Name</label>
+                                    <input class="form-control" required="required" name="" id="empname" type="text" >
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="" class="form-control-label">Leave Type</label>
+                                    <input class="form-control" required="required" name="" type="text" id="lt">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="" class="form-control-label">Start Date</label>
+                                    <input class="form-control" name="" type="text" id="sd" >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="" class="form-control-label">End Date</label>
+                                    <input class="form-control" name="" type="text" id="ed" >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="" class="form-control-label">Reason</label>
+                                    <input class="form-control" name="" type="text" id="reason" >
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>       
+                        </div>
+                    </div>
+                </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="approve()">Approve</button>
+          <button type="button" class="btn btn-danger" onclick="reject()">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+     function createleave(){
+        employee= document.getElementById("employee");
+        leavetype= document.getElementById("leavetype");
+        day= document.getElementById("day");
+        month= document.getElementById("month");
+        year= document.getElementById("year");
+        days= document.getElementById("days");
+        months= document.getElementById("months");
+        years= document.getElementById("years");
+        leavereason= document.getElementById("leavereason");
+        remark= document.getElementById("remark");
+        if (employee.value==""){
+            employee.style.borderColor="red";
+             alert("Enter the Employee name");
+        }
+        else if(leavetype.value==""){
+            leavetype.style.borderColor="red";
+            alert("Enter the leave type");
+        }
+        else if (day.value==""&& month.value==""&& year.value==""){
+            day.style.borderColor="red";
+            month.style.borderColor="red";
+            year.style.borderColor="red";
+            alert("Enter the start date");
+        }
+        else if (days.value==""&& months.value==""&& years.value==""){
+            days.style.borderColor="red";
+            months.style.borderColor="red";
+            years.style.borderColor="red";
+            alert("Enter the end date");
+        
+        }
+        else if(leavereason.value==""){
+            leavereason.style.borderColor="red";
+            alert("Enter the leave reason");
+        }
+        else if(remark.value==""){
+            remark.style.borderColor="red";
+            alert("Enter the remarks");
+            return false;
+        }
+        else{
+                return true;
+            }
+     }
+     function loaddata(){
+        $.ajax({
+            url:'/adminapp/fnmanageleave/',
+            type:'GET',
+            success: function(response){
+                $('.tr').remove()
+                for(i=0;i<response.mleave.length;i++){
+                    $('#table').append("<tr class='tr'><td>"+response.mleave[i].id+"</td><td>"+response.mleave[i].empid+"</td><td>"+response.mleave[i].empname+"</td><td>"+response.mleave[i].lcat+"</td><td>"+response.mleave[i].sd+"</td><td>"+response.mleave[i].ed+"</td><td>"+response.mleave[i].reason+"</td><td>"+response.mleave[i].status+"</td><td> <button data-toggle='modal' data-target='#viewModal' onclick='getleave("+response.mleave[i].id+")' >View</button></td></tr>")
+                }
+            }
+        })
+     }
+     function search(){
+            
+            $.ajaxSetup({
+  headers: { "X-CSRFToken": '{{csrf_token}}' }
+});
+$.ajax({
+                url:'/adminapp/searchleave/',
+                type: 'POST',
+                data:{
+                  search: $('#searchs').val()
+                },
+                success: function(response){
+                    
+                    $('.tr').remove()
+                    for(i=0;i<response.mleave.length;i++){
+                    $('#table').append("<tr class='tr'><td>"+response.mleave[i].id+"</td><td>"+response.mleave[i].empid+"</td><td>"+response.mleave[i].empname+"</td><td>"+response.mleave[i].lcat+"</td><td>"+response.mleave[i].sd+"</td><td>"+response.mleave[i].ed+"</td><td>"+response.mleave[i].reason+"</td><td>"+response.mleave[i].status+"</td><td> <button data-toggle='modal' data-target='#viewModal' onclick='getleave("+response.mleave[i].id+")' >View</button></td></tr>")
+                }
+                }
+            }) 
+        }
+     function getleave(uid){
+        $.ajaxSetup({
+  headers: { "X-CSRFToken": '{{csrf_token}}' }
+});
+$.ajax({
+    url:'/adminapp/getleave/',
+    type:'POST',
+    data:{
+        uid:uid
+    },
+    success: function(response){
+        $('#empid').val(response.leave[0].empid)
+        $('#empname').val(response.leave[0].empname)
+        $('#lt').val(response.leave[0].ltype)
+        $('#sd').val(response.leave[0].sd)
+        $('#ed').val(response.leave[0].ed)
+        $('#reason').val(response.leave[0].reason)
+    }
+})
+     }
+     function approve(){ 
+         $.ajaxSetup({
+  headers: { "X-CSRFToken": '{{csrf_token}}' }
+});
+$.ajax({
+    url:'/adminapp/approveleave/',
+    type:'POST',
+    data:{
+        
+    },
+    success: function(response){
+        alert(response.msg)
+        location.reload(true)
+    }
+    })
+     }
+     function reject(){ 
+         $.ajaxSetup({
+  headers: { "X-CSRFToken": '{{csrf_token}}' }
+});
+$.ajax({
+    url:'/adminapp/rejectleave/',
+    type:'POST',
+    data:{
+        
+    },
+    success: function(response){
+        alert(response.msg)
+        location.reload(true)
+    }
+    })
+     }
+  </script>
+  
+{% endblock %}

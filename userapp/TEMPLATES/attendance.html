@@ -1,0 +1,53 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+   window.onload=function(){
+       loaddata()
+   }
+</script>
+<div class="row" style="padding-top: 90px;padding-right: 30px;">
+    <div class="col-md-12">
+        <div class="widget box">
+            <div class="widget-header">
+                <div class="headingOftabel">
+                    <h4>
+                        Attendance Details
+                    </h4>
+                </div>
+            </div>
+            <br>
+            <div class="widget-content">
+                <form   class="form-horizontal row-border">
+  <div>
+ <table class="table dataTable table-bordered " cellspacing="0" rules="all" border="1" style="border-collapse:collapse;" id="table">
+    <thead>
+        <tr>
+            <th scope="col" style="width:10%;">Sl</th>
+            <th scope="col" style="width:20%;">Date</th>
+            <th scope="col" style="width:25%;">Login Time</th>
+            <th scope="col" style="width:25%;">Logout Time</th>
+            <th scope="col" style="width:25%;">Total Working Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+ </table>
+ </div>
+<script>
+    function loaddata(){
+        $.ajax({
+           url:'/user/fnattendance/',
+           type:'GET',
+           success:function(response){
+               $('.tr').remove()
+               
+               for(i=0;i<response.attendance.length;i++)
+               $('#table').append("<tr class='tr'><td>"+response.attendance[i].id+"</td><td>"+response.attendance[i].date+"</td><td>"+response.attendance[i].checkin+"</td><td>"+response.attendance[i].checkout+"</td><td>"+response.attendance[i].th+"</td></tr>")
+           } 
+        })
+    }
+</script>
+{% endblock %}
