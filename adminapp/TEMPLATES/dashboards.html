@@ -6,7 +6,7 @@
    window.onload=function(){
        getdata()
        getlist()
-       loadchart()
+    //    loadchart()
    }
 </script>
    
@@ -157,23 +157,23 @@ $.ajax({
          })
        }
 
-       function loadchart(){
-           $.ajax({
-               url:'/adminapp/loadchart/',
-               type:'GET',
-               success: function(response){
-                    console.log(response.key)
-                    function groupArrayOfObjects(list, key) {
-                        return list.reduce(function(rv, x) {
-                            (rv[x[key]] = rv[x[key]] || []).push(x);
-                            return rv;
-                        }, {});
-                        };
-                    a=groupArrayOfObjects(response.key,"department")
-                    console.log(a)
-               }
-           })
-       }
+    //    function loadchart(){
+    //        $.ajax({
+    //            url:'/adminapp/loadchart/',
+    //            type:'GET',
+    //            success: function(response){
+    //                 console.log(response.key)
+    //                 function groupArrayOfObjects(list, key) {
+    //                     return list.reduce(function(rv, x) {
+    //                         (rv[x[key]] = rv[x[key]] || []).push(x);
+    //                         return rv;
+    //                     }, {});
+    //                     };
+    //                 a=groupArrayOfObjects(response.key,"department")
+    //                 console.log(a)
+    //            }
+    //        })
+    //    }
    </script>
 
 {% endblock %}

@@ -1123,16 +1123,16 @@ def getpresent(request):
         print(e)
 
 
-def loadchart(request):
-    # result = (employeedetail.objects
-    #           .values('department_id')
-    #           .annotate(count=Count('department_id'))
-    #           .order_by()
-    #           )
-    # for i in result:
-    #     print(i)
+# def loadchart(request):
+#     # result = (employeedetail.objects
+#     #           .values('department_id')
+#     #           .annotate(count=Count('department_id'))
+#     #           .order_by()
+#     #           )
+#     # for i in result:
+#     #     print(i)
 
-    result = employeedetail.objects.select_related('department_id')
-    res = [{'departname': i.department_id.department_name} for i in result]
+#     result = employeedetail.objects.select_related('department_id')
+#     res = [{'departname': i.department_id.department_name} for i in result]
 
-    return JsonResponse({'key': res})
+#     return JsonResponse({'key': res})

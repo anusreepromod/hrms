@@ -83,5 +83,5 @@ urlpatterns = [
     path('getpresent/', views.getpresent, name='getpresent'),
     path('searchemployee/', views.searchemployee, ),
     path('searchleave/', views.searchleave, ),
-    path('loadchart/', views.loadchart, ),
+    #     path('loadchart/', views.loadchart, ),
 ]
