@@ -51,15 +51,17 @@ def getdatas(request):
     print(logid)
     user = employeedetail.objects.get(id=logid)
     holidays = holiday.objects.all().count()
-    l_obj = leavetype.objects.all()
-    list = []
-    for i in l_obj:
-        list.append(i.id)
-    sick = leave.objects.filter(
-        employeeid=logid, leavecategory=list[0]).count()
+    sick = leave.objects.filter(leavecategory_id=2).count()
+    casual = leave.objects.filter(leavecategory_id=1).count()
+    # l_obj = leavetype.objects.all()
+    # list = []
+    # for i in l_obj:
+    #     list.append(i.id)
+    # sick = leave.objects.filter(
+    #     employeeid=logid, leavecategory=list[0]).count()
     sicks = 6-sick
-    casual = leave.objects.filter(
-        employeeid=logid, leavecategory=list[1]).count()
+    # casual = leave.objects.filter(
+    #     employeeid=logid, leavecategory=list[1]).count()
     casuals = 12-casual
     print(holidays)
 
