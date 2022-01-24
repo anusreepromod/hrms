@@ -179,6 +179,7 @@
              url:'/user/getdatas/',
              type:'GET',
              success:function(response){
+                 alert(response.salary)
                  $('#salary').text(response.salary)
                  $('#holiday').text(response.holiday)
                  $('#sick').text(response.sick)
