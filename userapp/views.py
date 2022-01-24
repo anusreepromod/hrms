@@ -228,7 +228,7 @@ def fncheckin(request):
         checkid.save()
         request.session['check'] = checkid.id
         print(checkid.id)
-        return JsonResponse({'msg': "Saved Successfully"})
+        return JsonResponse({'msg': "Welcome"})
     return render(request, 'dashboard.html', {'msg': "Welcome"})
 
 
