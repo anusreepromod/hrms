@@ -63,7 +63,7 @@ def getdatas(request):
     casuals = 12-casual
     print(holidays)
 
-    return JsonResponse({'salary': user.salary, 'holiday': holidays, 'sick': sick, 'casual': casuals})
+    return JsonResponse({'salary': user.salary, 'holiday': holidays, 'sick': sicks, 'casual': casuals})
 
 
 def getuserprofile(request):
