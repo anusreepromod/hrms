@@ -57,10 +57,10 @@ def getdatas(request):
         list.append(i.id)
     sick = leave.objects.filter(
         employeeid=logid, leavecategory=list[0]).count()
-    sicks = 6-sick
+    sicks = 6
     casual = leave.objects.filter(
         employeeid=logid, leavecategory=list[1]).count()
-    casuals = 12-casual
+    casuals = 12
     print(holidays)
 
     return JsonResponse({'salary': user.salary, 'holiday': holidays, 'sick': sicks, 'casual': casuals})
