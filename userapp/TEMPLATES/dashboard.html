@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="/user/holiday/" style="color: black;">
+                
                     <div class="card card-stats">
                         <div class="card-header card-header-success card-header-icon">
                             <p class="card-category">Holiday</p>
@@ -30,7 +30,7 @@
                             
                         </div>
                     </div>
-                </a>
+                
                 
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
@@ -162,7 +162,6 @@
                             }
 
     function getmeeting(){
-        
         $.ajax({
            url:'/user/getmeeting/',
            type:'GET',
@@ -176,7 +175,6 @@
     }
    
        function getdata(){
-           alert("hi")
          $.ajax({
              url:'/user/getdatas/',
              type:'GET',
@@ -184,8 +182,8 @@
                  alert(response.salary)
                  $('#salary').text(response.salary)
                  $('#holiday').text(response.holiday)
-                 $('#sick').text(response.sick)
-                 $('#casual').text(response.casual)
+                //  $('#sick').text(response.sick)
+                //  $('#casual').text(response.casual)
              }
          })
        }
